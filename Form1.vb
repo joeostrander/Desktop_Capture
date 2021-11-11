@@ -87,6 +87,7 @@ Public Class Form1
     Friend WithEvents SecondsToolStripMenuItem6 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SecondsToolStripMenuItem7 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripButtonBlur As System.Windows.Forms.ToolStripButton
+    Friend WithEvents SetHotkeyToolStripMenuItem As ToolStripMenuItem
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
@@ -155,6 +156,7 @@ Public Class Form1
         Me.ToolStripButtonSetFont = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.SetHotkeyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,17 +174,17 @@ Public Class Form1
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModeToolStripMenuItem, Me.ToolStripMenuItemDelay_Tray, Me.RunAtStartupToolStripMenuItem, Me.AboutToolStripMenuItem, Me.ExitToolStripMenuItem, Me.CaptureToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModeToolStripMenuItem, Me.ToolStripMenuItemDelay_Tray, Me.RunAtStartupToolStripMenuItem, Me.SetHotkeyToolStripMenuItem, Me.AboutToolStripMenuItem, Me.ExitToolStripMenuItem, Me.CaptureToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.ShowCheckMargin = True
         Me.ContextMenuStrip1.ShowImageMargin = False
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(152, 136)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(181, 180)
         '
         'ModeToolStripMenuItem
         '
         Me.ModeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Tray_RegionToolStripMenuItem, Me.Tray_WindowToolStripMenuItem})
         Me.ModeToolStripMenuItem.Name = "ModeToolStripMenuItem"
-        Me.ModeToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ModeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ModeToolStripMenuItem.Text = "&Mode"
         '
         'Tray_RegionToolStripMenuItem
@@ -203,7 +205,7 @@ Public Class Form1
         '
         Me.ToolStripMenuItemDelay_Tray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SecondsToolStripMenuItem4, Me.SecondsToolStripMenuItem5, Me.SecondsToolStripMenuItem6, Me.SecondsToolStripMenuItem7})
         Me.ToolStripMenuItemDelay_Tray.Name = "ToolStripMenuItemDelay_Tray"
-        Me.ToolStripMenuItemDelay_Tray.Size = New System.Drawing.Size(151, 22)
+        Me.ToolStripMenuItemDelay_Tray.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItemDelay_Tray.Text = "&Delay"
         '
         'SecondsToolStripMenuItem4
@@ -236,27 +238,27 @@ Public Class Form1
         '
         Me.RunAtStartupToolStripMenuItem.CheckOnClick = True
         Me.RunAtStartupToolStripMenuItem.Name = "RunAtStartupToolStripMenuItem"
-        Me.RunAtStartupToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.RunAtStartupToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RunAtStartupToolStripMenuItem.Text = "&Run At Startup"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AboutToolStripMenuItem.Text = "&About"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'CaptureToolStripMenuItem
         '
         Me.CaptureToolStripMenuItem.Name = "CaptureToolStripMenuItem"
-        Me.CaptureToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.CaptureToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CaptureToolStripMenuItem.Text = "&Capture"
-        Me.CaptureToolStripMenuItem.ToolTipText = "Capture (Ctrl+Shift+P)"
+        Me.CaptureToolStripMenuItem.ToolTipText = "Capture"
         '
         'Panel1
         '
@@ -307,7 +309,7 @@ Public Class Form1
         Me.ToolStripButtonCapture.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButtonCapture.Name = "ToolStripButtonCapture"
         Me.ToolStripButtonCapture.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButtonCapture.Text = "Capture (Ctrl+Shift+P)"
+        Me.ToolStripButtonCapture.Text = "Capture"
         '
         'ToolStripDropDownButton1
         '
@@ -605,6 +607,12 @@ Public Class Form1
         Me.ToolStripLabel1.Size = New System.Drawing.Size(61, 22)
         Me.ToolStripLabel1.Text = "Enter Text:"
         '
+        'SetHotkeyToolStripMenuItem
+        '
+        Me.SetHotkeyToolStripMenuItem.Name = "SetHotkeyToolStripMenuItem"
+        Me.SetHotkeyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SetHotkeyToolStripMenuItem.Text = "Set &Hotkey"
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -637,6 +645,8 @@ Public Class Form1
 
     Private Const MOD_CONTROL As Integer = &H2 'Control key
     Private Const MOD_SHIFT As Integer = &H4 'Shift key
+    Public Const MOD_ALT As Integer = &H1
+    Public Const MOD_WIN As Integer = &H8
     Private Const WM_HOTKEY As Integer = &H312
 
     Private boolStartup As Boolean = False
@@ -667,6 +677,9 @@ Public Class Form1
 
     Private boolTrayExit As Boolean = False
 
+    Private hotkey As Integer = Keys.P
+    Private hotkey_modifiers As Integer = MOD_CONTROL + MOD_SHIFT
+    Private hotkey_id As Integer = -1
 
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
         If m.Msg = WM_HOTKEY Then TakeSnapshot()
@@ -721,6 +734,7 @@ Public Class Form1
         Next
 
         If intX < 0 Or intY < 0 Then
+            ' TODO:  can I fix this???
             If intY < 0 Then
                 MsgBox("Vertical monitor orientation not supported.", MsgBoxStyle.Exclamation, Application.ProductName)
             Else
@@ -735,12 +749,12 @@ Public Class Form1
 
         cropPen.DashStyle = Drawing2D.DashStyle.Dash
         ToolStripComboBoxPenSize.SelectedIndex = 3
-        RegisterHotKey(Me.Handle, 9, MOD_CONTROL + MOD_SHIFT, Keys.P) 'Ctrl + Shift + P
-        CheckForStartup()
+        LoadSettings()
+        SetHotkey(hotkey_modifiers, hotkey)
         ToolStripButtonSetFont.Text = FontDialog1.Font.FontFamily.Name & " " & FontDialog1.Font.SizeInPoints & "PT " & FontDialog1.Font.Style.ToString
     End Sub
 
-    Private Sub CheckForStartup()
+    Private Sub LoadSettings()
         On Error Resume Next
 
         Dim regKey As RegistryKey
@@ -770,6 +784,9 @@ Public Class Form1
         Else
             'Get Current Value and set it in the interface
             boolStartup = appRegKey.GetValue("RunAtStartup", False)
+
+            hotkey = appRegKey.GetValue("Hotkey", hotkey)
+            hotkey_modifiers = appRegKey.GetValue("HotkeyModifiers", hotkey_modifiers)
         End If
 
         regKey.Close()
@@ -788,8 +805,12 @@ Public Class Form1
         Dim appRegKey As RegistryKey
         appRegKey = Registry.CurrentUser.OpenSubKey("Software\" & Application.ProductName, True)
 
-        'Save the response
+        ' run at Startup
         appRegKey.SetValue("RunAtStartup", boolStartup, RegistryValueKind.DWord)
+
+        ' Hotkey
+        appRegKey.SetValue("Hotkey", hotkey, RegistryValueKind.DWord)
+        appRegKey.SetValue("HotkeyModifiers", hotkey_modifiers, RegistryValueKind.DWord)
 
         'If boolStartup=true, set to run at startup
         If boolStartup = True Then
@@ -847,7 +868,9 @@ Public Class Form1
     Private Sub Form1_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
 
         If Me.WindowState = FormWindowState.Minimized Then
-            NotifyIcon1.ShowBalloonTip(600, Application.ProductName, """Ctrl+Shift+P"" to activate", ToolTipIcon.Info)
+            Dim str_activate As String = get_hotkey_string()
+
+            'NotifyIcon1.ShowBalloonTip(600, Application.ProductName, Chr(34) & str_activate & Chr(34) & " to activate", ToolTipIcon.Info)
             Me.Hide()
         Else
             Me.Show()
@@ -1440,5 +1463,46 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub SetHotkeyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SetHotkeyToolStripMenuItem.Click
+        Dim frm As New FormHotkeySet
+        frm.letter = hotkey
+        frm.modifiers = hotkey_modifiers
 
+        If frm.ShowDialog() = DialogResult.OK Then
+            hotkey = frm.letter
+            hotkey_modifiers = frm.modifiers
+            If hotkey_id >= 0 Then
+                UnregisterHotKey(Me.Handle, hotkey_id)
+            End If
+
+            RegisterHotKey(Me.Handle, hotkey_id, hotkey_modifiers, hotkey)
+
+            SaveRegistrySettings()
+        End If
+    End Sub
+
+    Private Sub SetHotkey(modifiers As Integer, key As Integer)
+        RegisterHotKey(Me.Handle, hotkey_id, modifiers, key)
+        Dim str_activate As String = get_hotkey_string()
+        CaptureToolStripMenuItem.ToolTipText = "Capture (" & str_activate & ")"
+        ToolStripButtonCapture.Text = "Capture (" & str_activate & ")"
+        NotifyIcon1.ShowBalloonTip(600, Application.ProductName, Chr(34) & str_activate & Chr(34) & " to activate", ToolTipIcon.Info)
+    End Sub
+
+    Private Function get_hotkey_string() As String
+        Dim str_activate As String = ""
+        If (hotkey_modifiers And MOD_CONTROL) = MOD_CONTROL Then
+            str_activate &= "Ctrl+"
+        End If
+        If (hotkey_modifiers And MOD_SHIFT) = MOD_SHIFT Then
+            str_activate &= "Shift+"
+        End If
+        If (hotkey_modifiers And MOD_ALT) = MOD_ALT Then
+            str_activate &= "Alt+"
+        End If
+
+        str_activate &= Chr(hotkey)
+
+        Return str_activate
+    End Function
 End Class
